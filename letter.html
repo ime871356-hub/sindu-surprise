@@ -1,25 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400&display=swap');
-        body { margin: 0; font-family: 'Poppins', sans-serif; background: linear-gradient(135deg, #ffafbd, #ffc3a0); height: 100vh; display: flex; justify-content: center; align-items: center; }
-        .container { background: rgba(255, 255, 255, 0.9); padding: 2rem; border-radius: 25px; text-align: center; width: 90%; max-width: 380px; }
-        .letter-box { border: 2px dashed #ff4b5c; padding: 20px; border-radius: 15px; background: #fffafb; }
-        .letter-text { font-family: 'Great Vibes', cursive; font-size: 1.5rem; color: #333; line-height: 1.4; }
-        .btn { background: #ff4b5c; color: white; padding: 12px 30px; border-radius: 50px; text-decoration: none; display: inline-block; margin-top: 20px; }
+        @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins&display=swap');
+        body { margin: 0; font-family: 'Poppins', sans-serif; background: linear-gradient(135deg, #ffafbd, #ffc3a0); height: 100vh; display: flex; justify-content: center; align-items: center; overflow: hidden; position: relative; }
+        .heart { position: absolute; color: rgba(255, 255, 255, 0.7); font-size: 20px; animation: floatUp 6s linear infinite; z-index: 1; }
+        @keyframes floatUp { 0% { transform: translateY(110vh) rotate(0deg); opacity: 1; } 100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; } }
+        .container { background: white; padding: 2rem; border-radius: 20px; text-align: center; width: 85%; max-width: 350px; z-index: 10; position: relative; border: 2px solid #ff4b5c; }
+        p { font-family: 'Great Vibes', cursive; font-size: 1.5rem; color: #333; margin: 10px 0; }
+        .btn { background: #ff4b5c; color: white; padding: 12px 25px; border-radius: 50px; text-decoration: none; display: inline-block; margin-top: 15px; }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="letter-box">
-            <p class="letter-text">To My Favorite Person Sindu,</p>
-            <p>Just like this rose, you make my life beautiful. Thank you for everything.</p>
-            <p style="color:#ff4b5c; font-weight:bold;">Happy Rose Day Sindu! ❤️</p>
-        </div>
+        <p>To my favourite person,</p>
+        <p>Just like this rose, you make my life beautiful. Thank you for everything.</p>
+        <p style="color:#ff4b5c; font-weight:bold;">Happy Rose Day Sindu ❤️</p>
         <a href="final.html" class="btn">Last Surprise</a>
     </div>
+    <script>
+        function createHeart() { const h = document.createElement('div'); h.classList.add('heart'); h.innerHTML = '❤️'; h.style.left = Math.random() * 100 + 'vw'; h.style.animationDuration = (Math.random() * 3 + 3) + 's'; document.body.appendChild(h); setTimeout(() => { h.remove(); }, 6000); }
+        setInterval(createHeart, 400);
+    </script>
 </body>
 </html>
