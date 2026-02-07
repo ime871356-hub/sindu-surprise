@@ -1,9 +1,18 @@
 function checkRose(isCorrect) {
-    const status = document.getElementById('status');
-    if(isCorrect) {
-        status.innerHTML = "<span style='color: #28a745;'>Success! ❤️ Opening letter...</span>";
-        setTimeout(() => { window.location.href = "letter.html"; }, 1200);
+    const statusElement = document.getElementById('status');
+    
+    if (isCorrect) {
+        statusElement.innerHTML = "<span style='color: #28a745;'>Success! ❤️ Opening letter for Sindu...</span>";
+        // Wait 1.2 seconds then move to the letter page
+        setTimeout(() => {
+            window.location.href = "letter.html";
+        }, 1200);
     } else {
-        status.innerHTML = "<span style='color: #ff4b5c;'>Try another rose! 🌹</span>";
+        statusElement.innerHTML = "<span style='color: #ff4b5c;'>Try another rose! 🌹</span>";
+        // Shake animation effect
+        statusElement.style.animation = "none";
+        setTimeout(() => {
+            statusElement.style.animation = "shake 0.3s";
+        }, 10);
     }
 }
