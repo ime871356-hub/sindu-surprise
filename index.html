@@ -3,23 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Rose Day Sindu</title>
-    <link rel="stylesheet" href="style.css">
+    <title>For Sindu</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Great+Vibes&display=swap');
-        body { margin: 0; padding: 0; font-family: 'Poppins', sans-serif; background: linear-gradient(135deg, #ffafbd, #ffc3a0); height: 100vh; display: flex; justify-content: center; align-items: center; overflow: hidden; }
-        .container { background: rgba(255, 255, 255, 0.9); padding: 2rem; border-radius: 25px; box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1); text-align: center; width: 90%; max-width: 380px; animation: fadeIn 0.8s ease-out; }
-        h1 { font-family: 'Great Vibes', cursive; color: #ff4b5c; font-size: 2.2rem; margin: 10px 0; }
-        .btn { background: #ff4b5c; color: white; border: none; padding: 12px 30px; border-radius: 50px; cursor: pointer; font-weight: 600; text-decoration: none; display: inline-block; margin-top: 20px; transition: 0.3s; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        body { margin: 0; padding: 0; font-family: 'Poppins', sans-serif; background: linear-gradient(135deg, #ffafbd, #ffc3a0); height: 100vh; display: flex; justify-content: center; align-items: center; overflow: hidden; position: relative; }
+        .heart { position: absolute; color: rgba(255, 255, 255, 0.7); font-size: 20px; animation: floatUp 6s linear infinite; z-index: 1; }
+        @keyframes floatUp { 0% { transform: translateY(110vh) rotate(0deg); opacity: 1; } 100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; } }
+        .container { background: rgba(255, 255, 255, 0.9); padding: 2.5rem; border-radius: 30px; box-shadow: 0 15px 35px rgba(0,0,0,0.1); text-align: center; width: 85%; max-width: 350px; z-index: 10; position: relative; }
+        h1 { font-family: 'Great Vibes', cursive; color: #ff4b5c; font-size: 2.5rem; margin-bottom: 10px; }
+        .btn { background: #ff4b5c; color: white; border: none; padding: 14px 35px; border-radius: 50px; cursor: pointer; font-weight: 600; text-decoration: none; display: inline-block; margin: 10px; transition: 0.3s; }
     </style>
 </head>
 <body>
+    <audio id="bgMusic" loop><source src="song.mp3" type="audio/mpeg"></audio>
     <div class="container">
-        <img src="img1.jpg" style="width:100%; border-radius:15px; margin-bottom:10px;" alt="Rose Day">
         <h1>Happy Rose Day Sindu!</h1>
-        <p>A special surprise is waiting for you...</p>
+        <button onclick="toggleMusic()" class="btn" style="background:#ff8da1;">🎵 Play Song</button>
+        <br>
         <a href="memories.html" class="btn">Open Surprise 🌹</a>
     </div>
+    <script>
+        function toggleMusic() { var m = document.getElementById("bgMusic"); if (m.paused) { m.play(); } else { m.pause(); } }
+        function createHeart() { const h = document.createElement('div'); h.classList.add('heart'); h.innerHTML = '❤️'; h.style.left = Math.random() * 100 + 'vw'; h.style.animationDuration = (Math.random() * 3 + 3) + 's'; document.body.appendChild(h); setTimeout(() => { h.remove(); }, 6000); }
+        setInterval(createHeart, 400);
+    </script>
 </body>
 </html>
