@@ -1,61 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Great+Vibes&display=swap');
+
+:root {
+    --primary-pink: #ffafbd;
+    --secondary-pink: #ffc3a0;
+    --accent-red: #ff4b5c;
+    --glass-bg: rgba(255, 255, 255, 0.9);
+}
+
+* { box-sizing: border-box; }
+
 body {
-  margin: 0;
-  font-family: 'Poppins', sans-serif;
+    margin: 0; padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, var(--primary-pink), var(--secondary-pink));
+    height: 100vh;
+    display: flex; justify-content: center; align-items: center;
+    overflow: hidden;
 }
 
-.pink-bg {
-  background: linear-gradient(#ffd6e8, #ffeaf4);
-  min-height: 100vh;
+.container {
+    background: var(--glass-bg);
+    padding: 2rem;
+    border-radius: 25px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 90%;
+    max-width: 380px;
+    animation: fadeIn 0.8s ease-out;
 }
 
-.center {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
+
+h1 { font-family: 'Great Vibes', cursive; color: var(--accent-red); font-size: 2.2rem; margin: 10px 0; }
+p { color: #555; font-size: 0.95rem; line-height: 1.5; }
 
 .btn {
-  background: #ff4d88;
-  color: white;
-  padding: 12px 28px;
-  border-radius: 25px;
-  text-decoration: none;
-  margin-top: 20px;
+    background: var(--accent-red);
+    color: white; border: none;
+    padding: 12px 30px; border-radius: 50px;
+    cursor: pointer; font-weight: 600;
+    text-decoration: none; display: inline-block;
+    margin-top: 20px; transition: 0.3s;
 }
 
-.roses span {
-  font-size: 50px;
-  margin: 15px;
-  cursor: pointer;
-}
+.btn:hover { transform: scale(1.05); filter: brightness(1.1); }
 
-.card {
-  background: #fff0f6;
-  padding: 30px;
-  border-radius: 20px;
-  width: 85%;
-}
+/* Memory Grid */
+.memory-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 15px 0; }
+.memory-grid img { width: 100%; border-radius: 12px; height: 110px; object-fit: cover; }
+.memory-grid img.tall { grid-row: span 2; height: 230px; }
 
-.letter {
-  font-size: 18px;
-  color: #444;
-}
-
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
-  margin: 20px;
-}
-
-.gallery img {
-  width: 150px;
-  border-radius: 15px;
-}
-
-.final-img {
-  width: 220px;
-  border-radius: 20px;
-}
+/* Rose Interaction */
+.roses { font-size: 3rem; display: flex; justify-content: space-around; margin: 20px 0; }
+.rose-item { cursor: pointer; transition: 0.3s; }
