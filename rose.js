@@ -1,22 +1,9 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Pick a Rose</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body class="pink-bg center">
-
-  <h1>Pick a Rose 🌹</h1>
-  <p>Find the hidden message...</p>
-
-  <div class="roses">
-    <span onclick="wrong()">🌹</span>
-    <span onclick="correct()">🌹</span>
-    <span onclick="wrong()">🌹</span>
-  </div>
-
-  <p id="msg"></p>
-
-  <script src="rose.js"></script>
-</body>
-</html>
+function checkRose(isCorrect) {
+    const status = document.getElementById('status');
+    if(isCorrect) {
+        status.innerHTML = "<span style='color: #28a745;'>Success! ❤️ Opening letter...</span>";
+        setTimeout(() => { window.location.href = "letter.html"; }, 1200);
+    } else {
+        status.innerHTML = "<span style='color: #ff4b5c;'>Try another rose! 🌹</span>";
+    }
+}
