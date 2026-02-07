@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>Pick a Rose</title>
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body class="pink-bg center">
 
@@ -17,6 +17,6 @@
 
   <p id="msg"></p>
 
-  <script src="js/rose.js"></script>
+  <script src="rose.js"></script>
 </body>
 </html>
