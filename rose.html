@@ -1,19 +1,38 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body { margin: 0; font-family: 'Poppins', sans-serif; background: linear-gradient(135deg, #ffafbd, #ffc3a0); height: 100vh; display: flex; justify-content: center; align-items: center; }
+        .container { background: rgba(255, 255, 255, 0.9); padding: 2rem; border-radius: 25px; text-align: center; width: 90%; max-width: 380px; }
+        .roses { font-size: 3.5rem; display: flex; justify-content: space-around; margin: 25px 0; }
+        .rose-item { cursor: pointer; transition: 0.3s; filter: drop-shadow(0 5px 5px rgba(0,0,0,0.1)); }
+        .rose-item:hover { transform: scale(1.2); }
+        #status { font-weight: 600; margin-top: 15px; min-height: 24px; }
+    </style>
 </head>
 <body>
     <div class="container">
-        <h1>Pick a Rose</h1>
+        <h2 style="color: #ff4b5c;">Pick a Rose for Sindu</h2>
         <p>Find the hidden message...</p>
         <div class="roses">
             <span class="rose-item" onclick="checkRose(false)">🌹</span>
             <span class="rose-item" onclick="checkRose(true)">🌹</span>
             <span class="rose-item" onclick="checkRose(false)">🌹</span>
         </div>
-        <p id="status" style="font-weight: bold;"></p>
+        <div id="status"></div>
     </div>
-    <script src="rose.js"></script>
+    <script>
+        function checkRose(isCorrect) {
+            const status = document.getElementById('status');
+            if(isCorrect) {
+                status.innerHTML = "<span style='color: #28a745;'>Success! ❤️ Opening letter...</span>";
+                setTimeout(() => { window.location.href = "letter.html"; }, 1200);
+            } else {
+                status.innerHTML = "<span style='color: #ff4b5c;'>Try another rose! 🌹</span>";
+            }
+        }
+    </script>
 </body>
 </html>
